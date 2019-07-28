@@ -253,6 +253,8 @@ setMethod("parse","MascotParser", function(object,filename){
 				if (length(grep(boundaryCode,aSubLine)) > 0){ myflag = 1; break;}
 				if (length(grep("title=",aSubLine)) > 0) aQuery$title = strsplit(aSubLine,"=")[[1]][2];
 				if (length(grep("rtinseconds=",aSubLine)) > 0) aQuery$rtinseconds = as.double(strsplit(aSubLine,"=")[[1]][2]);
+				aQuery$query_number = queryCount;
+          			if (length(grep("scans=",aSubLine)) > 0) aQuery$scan_number = as.integer(strsplit(aSubLine,"=")[[1]][2]);
 				if (length(grep("charge=",aSubLine)) > 0) aQuery$charge = strsplit(aSubLine,"=")[[1]][2];
 				if (length(grep("mass_min=",aSubLine)) > 0) aQuery$mass_min = as.double(strsplit(aSubLine,"=")[[1]][2]);
 				if (length(grep("mass_max=",aSubLine)) > 0) aQuery$mass_max = as.double(strsplit(aSubLine,"=")[[1]][2]);
